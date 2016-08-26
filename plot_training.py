@@ -3,9 +3,7 @@ sys.argv.append("-b")
 import ROOT as rt
 import numpy as np
 
-#ntraining = 46527
-#ntraining = 101191
-ntraining =  48
+ntraining =  9471
 nevents_per_iteration = 10
 
 iters_per_point = 10

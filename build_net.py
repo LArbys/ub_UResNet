@@ -86,9 +86,9 @@ def buildnet(nclasses=3,cfgfile="filler.cfg",batch_size=1,base_numout=64,nchanne
     net.__setattr__("crop_score", crop_score)
 
     # softmax
-    if train:
-        softmaxloss   = L.SoftmaxWithLoss( crop_score, net.label, loss_param=dict(normalize=True, class_loss_weights=[1,100,100,100]) )
-        net.__setattr__( "softmaxloss", softmaxloss )
+    #if train:
+    softmaxloss   = L.SoftmaxWithLoss( crop_score, net.label, loss_param=dict(normalize=True, class_loss_weights=[1,10000,10000,10000]) )
+    net.__setattr__( "softmaxloss", softmaxloss )
 
     acc       = L.Accuracy( crop_score, net.label )
     net.__setattr__("accuracy", acc )
@@ -101,12 +101,18 @@ def buildnet(nclasses=3,cfgfile="filler.cfg",batch_size=1,base_numout=64,nchanne
 if __name__=="__main__":
 
     # build network
-    test_net = buildnet()
+    test_net  = buildnet(train=False)
+    train_net = buildnet(train=True)
 
     testout   = open('ub_uresnet_test.prototxt','w')
     print >> testout, "name: \"uB-U-ResNet\""
     print >> testout, test_net.to_proto()
     testout.close()
+
+    trainout   = open('ub_uresnet_train.prototxt','w')
+    print >> trainout, "name: \"uB-U-ResNet\""
+    print >> trainout, train_net.to_proto()
+    trainout.close()
 
 
 
