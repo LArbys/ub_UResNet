@@ -7,7 +7,7 @@ layer {
   root_data_param {
     batch_size: 2
     filler_config: "filler.cfg"
-    filler_name: "deploy"
+    filler_name: "train"
   }
 }
 layer {
@@ -31,8 +31,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet1a_bypass"
   top: "resnet1a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -65,8 +74,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet1a_btlnk"
   top: "resnet1a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -105,8 +123,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet1a_conv"
   top: "resnet1a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -145,8 +172,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet1a_expnd"
   top: "resnet1a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -195,8 +231,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet1b_btlnk"
   top: "resnet1b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -235,8 +280,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet1b_conv"
   top: "resnet1b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -275,8 +329,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet1b_expnd"
   top: "resnet1b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -338,8 +401,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet2a_bypass"
   top: "resnet2a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -372,8 +444,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet2a_btlnk"
   top: "resnet2a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -412,8 +493,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet2a_conv"
   top: "resnet2a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -452,8 +542,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet2a_expnd"
   top: "resnet2a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -502,8 +601,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet2b_btlnk"
   top: "resnet2b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -542,8 +650,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet2b_conv"
   top: "resnet2b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -582,8 +699,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet2b_expnd"
   top: "resnet2b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -645,8 +771,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet3a_bypass"
   top: "resnet3a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -679,8 +814,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet3a_btlnk"
   top: "resnet3a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -719,8 +863,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet3a_conv"
   top: "resnet3a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -759,8 +912,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet3a_expnd"
   top: "resnet3a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -809,8 +971,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet3b_btlnk"
   top: "resnet3b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -849,8 +1020,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet3b_conv"
   top: "resnet3b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -889,8 +1069,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet3b_expnd"
   top: "resnet3b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -952,8 +1141,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet4a_bypass"
   top: "resnet4a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -986,8 +1184,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet4a_btlnk"
   top: "resnet4a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1026,8 +1233,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet4a_conv"
   top: "resnet4a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1066,8 +1282,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet4a_expnd"
   top: "resnet4a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1116,8 +1341,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet4b_btlnk"
   top: "resnet4b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1156,8 +1390,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet4b_conv"
   top: "resnet4b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1196,8 +1439,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet4b_expnd"
   top: "resnet4b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1259,8 +1511,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet5a_bypass"
   top: "resnet5a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1293,8 +1554,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet5a_btlnk"
   top: "resnet5a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1333,8 +1603,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet5a_conv"
   top: "resnet5a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1373,8 +1652,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet5a_expnd"
   top: "resnet5a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1423,8 +1711,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet5b_btlnk"
   top: "resnet5b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1463,8 +1760,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet5b_conv"
   top: "resnet5b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1503,8 +1809,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet5b_expnd"
   top: "resnet5b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1591,8 +1906,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet6a_bypass"
   top: "resnet6a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1625,8 +1949,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet6a_btlnk"
   top: "resnet6a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1665,8 +1998,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet6a_conv"
   top: "resnet6a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1705,8 +2047,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet6a_expnd"
   top: "resnet6a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1755,8 +2106,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet6b_btlnk"
   top: "resnet6b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1795,8 +2155,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet6b_conv"
   top: "resnet6b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1835,8 +2204,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet6b_expnd"
   top: "resnet6b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1923,8 +2301,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet7a_bypass"
   top: "resnet7a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1957,8 +2344,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet7a_btlnk"
   top: "resnet7a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -1997,8 +2393,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet7a_conv"
   top: "resnet7a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2037,8 +2442,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet7a_expnd"
   top: "resnet7a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2087,8 +2501,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet7b_btlnk"
   top: "resnet7b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2127,8 +2550,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet7b_conv"
   top: "resnet7b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2167,8 +2599,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet7b_expnd"
   top: "resnet7b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2255,8 +2696,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet8a_bypass"
   top: "resnet8a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2289,8 +2739,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet8a_btlnk"
   top: "resnet8a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2329,8 +2788,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet8a_conv"
   top: "resnet8a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2369,8 +2837,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet8a_expnd"
   top: "resnet8a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2419,8 +2896,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet8b_btlnk"
   top: "resnet8b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2459,8 +2945,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet8b_conv"
   top: "resnet8b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2499,8 +2994,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet8b_expnd"
   top: "resnet8b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2587,8 +3091,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet9a_bypass"
   top: "resnet9a_bypass"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2621,8 +3134,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet9a_btlnk"
   top: "resnet9a_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2661,8 +3183,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet9a_conv"
   top: "resnet9a_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2701,8 +3232,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet9a_expnd"
   top: "resnet9a_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2751,8 +3291,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet9b_btlnk"
   top: "resnet9b_btlnk"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2791,8 +3340,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet9b_conv"
   top: "resnet9b_conv"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2831,8 +3389,17 @@ layer {
   type: "BatchNorm"
   bottom: "resnet9b_expnd"
   top: "resnet9b_expnd"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
   batch_norm_param {
-    use_global_stats: true
+    use_global_stats: false
   }
 }
 layer {
@@ -2902,9 +3469,28 @@ layer {
   }
 }
 layer {
-  name: "softmax"
-  type: "Softmax"
+  name: "softmaxloss"
+  type: "SoftmaxWithLoss"
   bottom: "crop_score"
-  top: "softmax"
+  bottom: "label"
+  top: "softmaxloss"
+  loss_param {
+    normalize: true
+    class_loss_weights: 1
+    class_loss_weights: 1000
+    class_loss_weights: 1000
+    class_loss_weights: 1000
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "crop_score"
+  bottom: "label"
+  top: "accuracy"
+  accuracy_param {
+    top_k: 1
+    ignore_label: 0
+  }
 }
 

@@ -7,7 +7,7 @@ layer {
   root_data_param {
     batch_size: 2
     filler_config: "filler.cfg"
-    filler_name: "deploy"
+    filler_name: "test"
   }
 }
 layer {
@@ -2902,9 +2902,28 @@ layer {
   }
 }
 layer {
-  name: "softmax"
-  type: "Softmax"
+  name: "softmaxloss"
+  type: "SoftmaxWithLoss"
   bottom: "crop_score"
-  top: "softmax"
+  bottom: "label"
+  top: "softmaxloss"
+  loss_param {
+    normalize: true
+    class_loss_weights: 1
+    class_loss_weights: 1000
+    class_loss_weights: 1000
+    class_loss_weights: 1000
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "crop_score"
+  bottom: "label"
+  top: "accuracy"
+  accuracy_param {
+    top_k: 1
+    ignore_label: 0
+  }
 }
 

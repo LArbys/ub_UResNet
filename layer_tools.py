@@ -3,7 +3,9 @@ from caffe import layers as L
 from caffe import params as P
 
 def convolution_layer( net, input_layer, layername_stem, parname_stem, noutputs, stride, kernel_size, pad, init_bias, 
-                       addbatchnorm=True, train=True, kernel_w=None, kernel_h=None, pad_w=None, pad_h=None, w_lr=1.0, b_lr=1.0 ):
+                       addbatchnorm=True, train=True, kernel_w=None, kernel_h=None, pad_w=None, pad_h=None, 
+                       w_decay_mult=1.0, b_decay_mult=1.0,
+                       w_lr=1.0, b_lr=1.0, add_relu=True ):
     if kernel_w is None or kernel_h is None:
         if pad_w is None:
             my_pad_w = pad
@@ -23,7 +25,8 @@ def convolution_layer( net, input_layer, layername_stem, parname_stem, noutputs,
                               num_output=noutputs,
                               weight_filler=dict(type="msra"),
                               bias_filler=dict(type="constant",value=init_bias),
-                              param=[dict(name="par_%s_conv_w"%(parname_stem),lr_mult=w_lr),dict(name="par_%s_conv_b"%(parname_stem),lr_mult=b_lr)] )
+                              param=[dict(name="par_%s_conv_w"%(parname_stem),lr_mult=w_lr,decay_mult=w_decay_mult),
+                                     dict(name="par_%s_conv_b"%(parname_stem),lr_mult=b_lr,decay_mult=b_decay_mult)] )
     else:
         conv = L.Convolution( input_layer, 
                               kernel_w=kernel_w,
@@ -34,7 +37,8 @@ def convolution_layer( net, input_layer, layername_stem, parname_stem, noutputs,
                               num_output=noutputs,
                               weight_filler=dict(type="msra"),
                               bias_filler=dict(type="constant",value=init_bias),
-                              param=[dict(name="par_%s_conv_w"%(parname_stem),lr_mult=w_lr),dict(name="par_%s_conv_b"%(parname_stem),lr_mult=b_lr)] )
+                              param=[dict(name="par_%s_conv_w"%(parname_stem),lr_mult=w_lr,decay_mult=w_decay_mult),
+                                     dict(name="par_%s_conv_b"%(parname_stem),lr_mult=b_lr,decay_mult=b_decay_mult)] )
         
     net.__setattr__( layername_stem+"_conv", conv )
     if addbatchnorm:
@@ -49,9 +53,12 @@ def convolution_layer( net, input_layer, layername_stem, parname_stem, noutputs,
         net.__setattr__( layername_stem+"_relu", conv_relu )
         nxtlayer = conv_relu
     else:
-        conv_relu  = L.ReLU( conv, in_place=True )
-        net.__setattr__( layername_stem+"_relu", conv_relu )
-        nxtlayer = conv_relu
+        if add_relu:
+            conv_relu  = L.ReLU( conv, in_place=True )
+            net.__setattr__( layername_stem+"_relu", conv_relu )
+            nxtlayer = conv_relu
+        else:
+            nxtlayer = conv
     return nxtlayer
 
 def concat_layer( net, layername, *bots ):
@@ -180,8 +187,10 @@ def pool_layer( net, inputlayer, layername, kernel_size, stride, pooltype=P.Pool
 def deconvolution_layer( net, inputlayer, layername, kernel_size, stride, pad, num_output, w_lr=1.0, b_lr=1.0, init_bias=0.0 ):
     parname_stem = layername
     deconv = L.Deconvolution( inputlayer, 
-                              convolution_param=dict(num_output=num_output, kernel_size=kernel_size, stride=stride, pad=pad,
-                                                     weight_filler=dict(type="msra"),
+                              convolution_param=dict(num_output=num_output, group=num_output, 
+                                                     kernel_size=kernel_size, 
+                                                     stride=stride, pad=pad,
+                                                     weight_filler=dict(type="bilinear"),
                                                      bias_filler=dict(type="constant",value=init_bias)),
                               param=[dict(name="par_%s_deconv_w"%(parname_stem),lr_mult=w_lr),dict(name="par_%s_conv_b"%(parname_stem),lr_mult=b_lr)] )
     net.__setattr__( layername, deconv )

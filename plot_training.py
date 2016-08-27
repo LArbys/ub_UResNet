@@ -4,10 +4,10 @@ import ROOT as rt
 import numpy as np
 
 ntraining =  9471
-nevents_per_iteration = 10
+nevents_per_iteration = 100
 
-iters_per_point = 10
-test_iters_per_point = 100
+iters_per_point = 1
+test_iters_per_point = 10
 nevents_per_epoch = float(ntraining)/float(nevents_per_iteration)
 
 f = open(sys.argv[1],'r')
@@ -32,12 +32,25 @@ for l in f:
             loss_max = loss
     elif "Test net output #0: accuracy" in l:
         # VAL ACC
-        acc = float( l.strip().split("=")[1] )
+        try:
+            acc = float( l.strip().split("=")[1] )
+        except:
+            acc = 0.0
+        if acc!=acc:
+            if len(acc_pts)>0:
+                acc = acc_pts[-1][1]
+            else:
+                acc = 0.0
         acc_pts.append( (niter_test,acc) )
         niter_test += test_iters_per_point
     elif "Train net output #0: accuracy" in l:
         # TRAIN ACC
         train_acc = float( l.strip().split("=")[1] )
+        if train_acc!=train_acc:
+            if len(train_acc_pts)>0:
+                train_acc = train_acc_pts[-1][1]
+            else:
+                train_acc = 0.0
         train_acc_pts.append( (niter_trainacc, train_acc ) )
         niter_trainacc += iters_per_point
 
@@ -72,6 +85,7 @@ gacc_train.Draw("ALP")
 gacc_train.GetYaxis().SetRangeUser(0,1)
 gacc_train.SetTitle("Accuracy;epochs;accuracy")
 gacc.SetLineColor(rt.kRed)
+gacc.SetLineWidth(2)
 gacc.Draw("LP")
 c.SaveAs("training_plot.png")
 
