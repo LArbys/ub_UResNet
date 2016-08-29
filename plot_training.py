@@ -162,7 +162,15 @@ gacc.Draw("P")
 gacc_train_ave.SetLineWidth(1)
 gacc_train_ave.SetLineColor(rt.kBlue)
 gacc_train_ave.Draw("LP")
-c.SaveAs("training_plot.png")
 
+# (legend)
+acc_legend = rt.TLegend(0.45, 0.15, 0.85, 0.45)
+acc_legend.SetBorderSize(1)
+acc_legend.AddEntry( gacc_train, "Train  accuracy", "P" )
+acc_legend.AddEntry( gacc_train_ave,  "Train  accuracy (ave.)", "L" )
+acc_legend.AddEntry( gacc, "Test accuracy", "P")
+acc_legend.Draw()
+
+c.SaveAs("training_plot.png")
 
 print "number of points: ",len(train_loss_pts)," nepochs=",float(niter)/nevents_per_epoch
